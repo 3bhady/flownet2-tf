@@ -8,8 +8,8 @@ endif
 
 CC        = gcc -O2 -pthread
 CXX       = g++
-GPUCC     = nvcc
-CFLAGS    = -std=c++11 -I$(TF_INC) -I"$(CUDA_HOME)/.." -DGOOGLE_CUDA=1 --expt-relaxed-constexpr -DNDEBUG
+GPUCC     = nvcc  --expt-relaxed-constexpr
+CFLAGS    = -std=c++11 -I$(TF_INC) -I"$(CUDA_HOME)/.." -DGOOGLE_CUDA=1 -DNDEBUG
 GPUCFLAGS = -c
 LFLAGS    = -pthread -shared -fPIC
 GPULFLAGS = -x cu -Xcompiler -fPIC
