@@ -1,7 +1,7 @@
 # Makefile
 
 TF_INC = `python -c "import tensorflow; print(tensorflow.sysconfig.get_include())"`
-
+TF_LIB = `python -c "import tensorflow; print(tensorflow.sysconfig.get_lib())"`
 ifndef CUDA_HOME
     CUDA_HOME := /usr/local/cuda
 endif
@@ -53,7 +53,7 @@ ifeq ($(detected_OS),Darwin)  # Mac OS X
 	CGPUFLAGS += -undefined dynamic_lookup
 endif
 ifeq ($(detected_OS),Linux)
-	CFLAGS += -D_MWAITXINTRIN_H_INCLUDED -D_FORCE_INLINES -D__STRICT_ANSI__ -D_GLIBCXX_USE_CXX11_ABI=0
+	CFLAGS += -D_MWAITXINTRIN_H_INCLUDED -D_FORCE_INLINES -D__STRICT_ANSI__
 endif
 
 all: preprocessing downsample correlation flowwarp
