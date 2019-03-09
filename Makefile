@@ -53,7 +53,7 @@ ifeq ($(detected_OS),Darwin)  # Mac OS X
 	CGPUFLAGS += -undefined dynamic_lookup
 endif
 ifeq ($(detected_OS),Linux)
-	CFLAGS += -D_MWAITXINTRIN_H_INCLUDED -D_FORCE_INLINES -D__STRICT_ANSI__
+	CFLAGS += -D_MWAITXINTRIN_H_INCLUDED -D_FORCE_INLINES -D__STRICT_ANSI__ -D_GLIBCXX_USE_CXX11_ABI=0
 endif
 
 all: preprocessing downsample correlation flowwarp
